@@ -21,14 +21,14 @@ export default function(ComposedComponent) {
         }
         render(){
             console.log(this.context);
-            
+            console.log('authenticated',this.props);
             return <ComposedComponent {...this.props} />
         }
 
     }
     function mapStateToProps(state)
     {
-        return {authenticated:state.authenticated};
+        return {authenticated: state.authenticated};
     }
     return connect(mapStateToProps)(Authentication);
 }
