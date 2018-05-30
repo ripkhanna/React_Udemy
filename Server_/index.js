@@ -7,6 +7,7 @@ const morgan = require( 'morgan'); // logging
 const app = express();
 const router = require('./router');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // db setup
 mongoose.connect('mongodb://localhost/local');
@@ -14,6 +15,7 @@ mongoose.connect('mongodb://localhost/local');
 //Morgan login framework
 
 app.use(morgan('combined'));
+app.use(cors());
 //body parser middleware parse to json
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
